@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>1904日治台灣堡圖再現加值</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="https://openlayers.org/en/v5.3.0/css/ol.css" />
+	<link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@3.0.0/src/ol-layerswitcher.css" />
+    <script src="https://openlayers.org/en/v5.3.0/build/ol.js"></script>
+	<script src="https://unpkg.com/ol-layerswitcher@3.0.0"></script>	
+	<title>OpenLayers</title>
+  </head>
+  <body>
+	<h2>1904日治台灣堡圖再現加值</h2>
+    <div id="map"></div>
+    <script type="text/javascript">
+var map = new ol.Map({
+    target: 'map',
+    layers: [
+        new ol.layer.Group({
+            title: 'Base map',
+            layers: [
+                new ol.layer.Tile({
+                    title: 'Open Street Map',
+                    source: new ol.source.OSM(),
+                    type: 'base'
+                }),
+                new ol.layer.Tile({
+                    title: 'texture',
+                    type: 'base',
+                    source: new ol.source.TileImage({
+		 				url:'http://140.109.23.188/texture/{z}/{x}/{y}.png'
+					})
+                }),
+                new ol.layer.Tile({
+                    title: 'green',
+                    type: 'base',
+                    source: new ol.source.TileImage({
+		 				url:'http://140.109.23.188/green/{z}/{x}/{y}.png'
+					})
+                }),
+                new ol.layer.Tile({
+                    title: 'ukiyo',
+                    type: 'base',
+                    source: new ol.source.TileImage({
+		 				url:'http://140.109.23.188/ukiyo/{z}/{x}/{y}.png'
+					})
+                })
+            ]
+        }),
+                /*new ol.layer.Tile({
+                    title: 'default',
+                    type: 'base',
+                    source: new ol.source.WMTS({
+		 				url:''
+					})
+                })
+				*/
+        new ol.layer.Group({
+            title: 'Marker map',
+			opacity: 0.5,
+            layers: [
+                new ol.layer.Tile({
+                    title: 'modern',
+                    source: new ol.source.TileImage({
+		 				url:'http://140.109.23.188/modern/{z}/{x}/{y}.png'
+					})
+                }),
+                new ol.layer.Tile({
+                    title: 'ink',
+                    source: new ol.source.TileImage({
+		 				url:'http://140.109.23.188/ink/{z}/{x}/{y}.png'
+					})
+                }),
+                new ol.layer.Tile({
+                    title: 'word',
+                    source: new ol.source.TileImage({
+		 				url:'http://140.109.23.188/word/{z}/{x}/{y}.png'
+					})
+                })
+            ]
+        })
+    ],
+    view: new ol.View({
+    	center: ol.proj.fromLonLat([120.23, 23]),
+        zoom: 11
+    })
+});
+map.addControl(new ol.control.LayerSwitcher());
+	</script>
+  </body>
+</html>
