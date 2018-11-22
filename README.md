@@ -1,4 +1,4 @@
-# Ancient map OSM tileserver
+# Ancient Map OSM tileserver
 # Introduction
   古地圖的數化保存，不僅能滿足學術界研究需求，此外也能進行重現當時樣貌與今昔對比等後續加值工作，而此項目以1904年-日治台灣堡圖(明治版)1:20,000為數化的項目，數化範圍為台南市。  
   
@@ -9,15 +9,9 @@
     3.尤其重視水系之間的關聯  
     4.屬性校正，確定每個圖徵它的土地使用或是其他屬性，皆為Openstreetmap上所規定認可的
 
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
+## Manually building a tile server (16.04.2 LTS)
 ```
-Give examples
+URL:https://switch2osm.org/manually-building-a-tile-server-16-04-2-lts/
 ```
 
 ### Installing
