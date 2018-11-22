@@ -13,6 +13,7 @@
 ```
 URL:https://switch2osm.org/manually-building-a-tile-server-16-04-2-lts/
 ```
+This page describes how to install, setup and configure all the necessary software to operate your own tile server. The step-by-step instructions are written for Ubuntu Linux 16.04.2 LTS (Xenial Xerus).
 
 ### Installing
 
