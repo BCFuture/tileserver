@@ -8,7 +8,6 @@
 	<link rel="stylesheet" href="https://unpkg.com/ol-layerswitcher@3.0.0/src/ol-layerswitcher.css" />
     <script src="https://openlayers.org/en/v5.3.0/build/ol.js"></script>
 	<script src="https://unpkg.com/ol-layerswitcher@3.0.0"></script>
-	<script src="https://unpkg.com/ol-layerswitcher@3.0.0/opacity_slider.js"></script>
 	<title>OpenLayers</title>
   </head>
   <body>
@@ -26,14 +25,6 @@ var map = new ol.Map({
                     source: new ol.source.OSM(),
                     type: 'base'
                 }),
-                 new ol.layer.Tile({
-                    title: 'Water color',
-                    source: new ol.source.Stamen({
-                        layer: 'watercolor'
-                    })
-                    type: 'base'
-                }),
-
                 new ol.layer.Tile({
                     title: 'texture',
                     type: 'base',
