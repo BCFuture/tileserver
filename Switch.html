@@ -13,6 +13,7 @@
 	<h2>1904日治台灣堡圖再現加值</h2>
     <div id="map"></div>
     <script type="text/javascript">
+(function() {
 var map = new ol.Map({
     target: 'map',
     layers: [
@@ -97,6 +98,7 @@ var map = new ol.Map({
         enableOpacitySliders: true
     });
     map.addControl(layerSwitcher);
+})();
 	</script>
   </body>
 </html>
