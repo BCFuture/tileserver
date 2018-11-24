@@ -14,90 +14,71 @@
     <div id="map"></div>
     <script type="text/javascript">
 (function() {
-var map = new ol.Map({
-    target: 'map',
-    layers: [
-        new ol.layer.Group({
-            title: 'Base map',
-            layers: [
-                new ol.layer.Tile({
-                    title: 'Open Street Map',
-                    source: new ol.source.OSM(),
-                    type: 'base'
-                }),
-                new ol.layer.Tile({
-                    title: 'texture',
-                    type: 'base',
-                    source: new ol.source.TileImage({
-		 				url:'http://140.109.23.188/texture/{z}/{x}/{y}.png'
-					})
-                }),
-                new ol.layer.Tile({
-                    title: 'green',
-                    type: 'base',
-                    source: new ol.source.TileImage({
-		 				url:'http://140.109.23.188/green/{z}/{x}/{y}.png'
-					})
-                }),
-                new ol.layer.Tile({
-                    title: 'ukiyo',
-                    type: 'base',
-                    source: new ol.source.TileImage({
-		 				url:'http://140.109.23.188/ukiyo/{z}/{x}/{y}.png'
-					})
-                }),
-                new ol.layer.Tile({
-                    title: 'default',
-                    type: 'base',
-                    source: new ol.source.TileImage({
-		 				url:'http://140.109.23.188/default/{z}/{x}/{y}.png'
-					})
-                })
-            ]
-        }),
-                /*new ol.layer.Tile({
-                    title: 'default',
-                    type: 'base',
-                    source: new ol.source.WMTS({
-		 				url:''
-					})
-                })
-				*/
-        new ol.layer.Group({
-            title: 'Marker map',
-			opacity: 0.5,
-            layers: [
-                new ol.layer.Tile({
-                    title: 'modern',
-                    source: new ol.source.TileImage({
-		 				url:'http://140.109.23.188/modern/{z}/{x}/{y}.png'
-					})
-                }),
-                new ol.layer.Tile({
-                    title: 'ink',
-                    source: new ol.source.TileImage({
-		 				url:'http://140.109.23.188/ink/{z}/{x}/{y}.png'
-					})
-                }),
-                new ol.layer.Tile({
-                    title: 'word',
-                    source: new ol.source.TileImage({
-		 				url:'http://140.109.23.188/word/{z}/{x}/{y}.png'
-					})
-                })
-            ]
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Group({
+                'title': 'Base maps',
+                layers: [
+                    new ol.layer.Group({
+                        title: 'Water color with labels',
+                        type: 'base',
+                        combine: true,
+                        visible: false,
+                        layers: [
+                            new ol.layer.Tile({
+                                source: new ol.source.Stamen({
+                                    layer: 'watercolor'
+                                })
+                            }),
+                            new ol.layer.Tile({
+                                source: new ol.source.Stamen({
+                                    layer: 'terrain-labels'
+                                })
+                            })
+                        ]
+                    }),
+                    new ol.layer.Tile({
+                        title: 'Water color',
+                        type: 'base',
+                        visible: false,
+                        source: new ol.source.Stamen({
+                            layer: 'watercolor'
+                        })
+                    }),
+                    new ol.layer.Tile({
+                        title: 'OSM',
+                        type: 'base',
+                        visible: true,
+                        source: new ol.source.OSM()
+                    })
+                ]
+            }),
+            new ol.layer.Group({
+                title: 'Overlays',
+                layers: [
+                    new ol.layer.Image({
+                        title: 'Countries',
+                        source: new ol.source.ImageArcGISRest({
+                            ratio: 1,
+                            params: {'LAYERS': 'show:0'},
+                            url: "https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Countries_December_2016_Boundaries/MapServer"
+                        })
+                    })
+                ]
+            })
+        ],
+        view: new ol.View({
+            center: ol.proj.transform([-0.92, 52.96], 'EPSG:4326', 'EPSG:3857'),
+            zoom: 6
         })
-    ],
-    view: new ol.View({
-    	center: ol.proj.fromLonLat([120.23, 23]),
-        zoom: 11
-    })
-});
-	    
+    });
+
     var layerSwitcher = new ol.control.LayerSwitcher({
         enableOpacitySliders: true
     });
     map.addControl(layerSwitcher);
+
 })();
 	</script>
   </body>
