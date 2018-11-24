@@ -28,9 +28,10 @@ var map = new ol.Map({
                 }),
                  new ol.layer.Tile({
                     title: 'Water color',
-                    source: new ol.source.Stamen,
+                    source: new ol.source.Stamen({
+                        layer: 'watercolor'
+                    })
                     type: 'base'
-			 layer: 'watercolor'
                 }),
 
                 new ol.layer.Tile({
