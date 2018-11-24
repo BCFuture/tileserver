@@ -25,6 +25,12 @@ var map = new ol.Map({
                     source: new ol.source.OSM(),
                     type: 'base'
                 }),
+                 new ol.layer.Tile({
+                    title: 'Water color',
+                    source: new ol.source.Stamen,
+                    type: 'base'
+                }),
+
                 new ol.layer.Tile({
                     title: 'texture',
                     type: 'base',
