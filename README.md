@@ -18,5 +18,4 @@ This page describes how to install, setup and configure all the necessary softwa
 ## Technical document
 
 ```
-URL:https://switch2osm.org/manually-building-a-tile-server-16-04-2-lts/
-```
+URL:https://bcfuture.github.io/tileserver/Maps Re-imagined Technical document.pdf
